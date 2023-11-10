@@ -1,5 +1,5 @@
 {
-  "name": "baghdadi-website",
+  "name": "omc-registration",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openmindsclub/baghdadi-website.git"
+    "url": "https://github.com/openmindsclub/OMC-Registration-website"
   },
   "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/openmindsclub/baghdadi-website/issues"
-  },
-  "homepage": "https://github.com/openmindsclub/baghdadi-website#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",

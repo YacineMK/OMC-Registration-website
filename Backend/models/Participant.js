@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const participantSchema = new Schema({
-    fullname: {
+    name: {
         type: String,
         trim: true,
         required: true
@@ -22,20 +22,25 @@ const participantSchema = new Schema({
         type: String,
         trim: true,
         required: true,
-        unique: true
+    },
+    university: 
+    {
+        type: String,
+        trim: true,
+    },
+    matricule: {
+        type: String,
+        trim: true,
+    },
+    field: {
+        type: String,
+        trim: true,
     },
     motivation: {
         type: String,
         trim: true,
     },
     discord: {
-        type: String,
-        trim: true,
-    },
-    isMember: {
-        type: Boolean,
-    },
-    speciality: {
         type: String,
         trim: true,
     },

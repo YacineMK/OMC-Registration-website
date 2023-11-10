@@ -6,6 +6,7 @@ const Participant = require("./models/Participant");
 const mongoose = require("mongoose");
 const { check, validationResult } = require("express-validator");
 
+console.log(process.env.MONGO_URI)
 mongoose
   .connect(process.env.MONGO_URI)
   .catch((error) => {
@@ -27,12 +28,16 @@ app.post(
   [
     check("email", "email is required !").not().isEmpty(),
     check("email", "Invalid email !").isEmail().isLength({ min: 10, max: 30 }),
-    check("fullname", "fullname is required !").not().isEmpty(),
-    check("fullname", "Please enter your real name !").isLength({
+    check("name", "fullname is required !").not().isEmpty(),
+    check("name", "Please enter your real name !").isLength({
       min: 5,
       max: 50,
     }),
     check("phone", "Invalid phone number!").isLength({ min: 10, max: 10 }),
+    check("university", "university field is required !").not().isEmpty(),
+    check("matricule", "ID number field is required !").not().isEmpty(),
+    check("field", "Study field is required !").not().isEmpty(),
+    // check("discord", "D is required !").not().isEmpty(),
     check("motivation", "Motivation is required !").not().isEmpty(),
     // check('motivation', 'FirstName length should be 3 to 30 characters').isLength({ min: 5, max: 50 }),
     // check('lastname', 'Lastname is required').not().isEmpty(),
@@ -54,15 +59,16 @@ app.post(
           .json({ err: true, errors: [{ msg: "Email already registered !" }] });
 
       const newParticipant = new Participant({
+        name: req.body.name.toLowerCase(),
         email: req.body.email.toLowerCase(),
-        fullname: req.body.fullname.toLowerCase(),
         phone: req.body.phone,
+        university: req.body.phone,
+        matricule: req.body.phone,
+        field: req.body.phone,
         // lastname: req.body.lastname.toLowerCase(),
-        speciality: req.body.speciality.toLowerCase(),
         // level: req.body.level.toLowerCase(),
         discord: req.body.discord.toLowerCase(),
         motivation: req.body.motivation.toLowerCase(),
-        isMember: req.body.isMember,
       });
 
       const result = await newParticipant.save();
