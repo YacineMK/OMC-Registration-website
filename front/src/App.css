@@ -22,6 +22,8 @@ body {
   font-style: normal;
   font-weight: 700;
   color: #7EE787;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 .text-div p {
   font-family: 'Red Hat Mono', monospace;
@@ -39,7 +41,7 @@ body {
   color: #F0F6FC;
   text-decoration: left;
   margin-top: 40px;
-  margin-left: 17%;
+  margin-left: 15%;
   margin-right: 15%;
   width: auto;
   gap: 80px;
@@ -88,4 +90,10 @@ body {
 .input-container input::placeholder {
   font-size: 18px;
   color: #A0AEC0; 
+}
+@media (max-width:850px) {
+  .inputs-section {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
 }
