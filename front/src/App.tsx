@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function Input({ qst }: { qst: string }) {
+interface InputProps {
+  qst: string;
+}
+
+function Input({ qst }: InputProps) {
   return (
     <div className="input-container">
       <label>{qst}</label>
@@ -14,7 +18,20 @@ function Input({ qst }: { qst: string }) {
   );
 }
 
-function Select({ qst }: { qst: string }) {
+function MadebyOMC() {
+  return (
+    <div>
+      <h1>Made with ❤️ By OMC</h1>
+      <p>And Soyed</p>
+    </div>
+  );
+}
+
+interface SelectProps {
+  qst: string;
+}
+
+function Select({ qst }: SelectProps) {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -48,23 +65,29 @@ function App() {
         <h1>Register Now</h1>
         <p>Fuel Your Mind and Join the Journey!</p>
       </div>
-      <div className="inputs-section">
-        <Input qst="1 -> Hi, What’s your full name ?:" />
-        <Input qst="2 -> What’s your Email ?" />
-        <Input qst="3 -> What's your Phone Number ?" />
-        <Input qst="4 -> What is your University" />
-        <Input qst="5 -> What is your Study field" />
-        <Select qst="6 -> Year of Study ?" />
-        <Input qst="7 -> What's your Phone Number ?" />
-        <Input qst="8 -> What's your Discord id?" />
-        <Input qst="9 -> What you know about Open Source ?" />
-        <Input qst="10 -> What's your skills ?" />
-        <Input qst="11 -> Your GitHub / LinkedIn or Portfolio?" />
-        <Input qst="12 -> How you know OMC ?" />
-        <Input qst="13 -> What do you know about OMC ?" />
-        <Input qst="14 -> Why You want to join OMC ?" />
-        <Input qst="15 -> Anything to Add ?" />
+      <div>
+        <form className="inputs-section">
+          <Input qst="1 -> Hi, What’s your full name ?:" />
+          <Input qst="2 -> What’s your Email ?" />
+          <Input qst="3 -> What's your Phone Number ?" />
+          <Input qst="4 -> What is your University" />
+          <Input qst="5 -> What is your Study field" />
+          <Select qst="6 -> Year of Study ?" />
+          <Input qst="7 -> What's your Phone Number ?" />
+          <Input qst="8 -> What's your Discord id?" />
+          <Input qst="9 -> What you know about Open Source ?" />
+          <Input qst="10 -> What's your skills ?" />
+          <Input qst="11 -> Your GitHub / LinkedIn or Portfolio?" />
+          <Input qst="12 -> How you know OMC ?" />
+          <Input qst="13 -> What do you know about OMC ?" />
+          <Input qst="14 -> Why You want to join OMC ?" />
+          <Input qst="15 -> Anything to Add ?" />
+          <button type="submit" id="Submit">
+            Submit
+          </button>
+        </form>
       </div>
+      <MadebyOMC />
     </>
   );
 }
