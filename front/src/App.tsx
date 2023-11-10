@@ -3,13 +3,26 @@ import './App.css';
 
 interface InputProps {
   qst: string;
+  onInputChange: (value: string) => void;
 }
 
-function Input({ qst }: InputProps) {
+function Input({ qst, onInputChange }: InputProps) {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+    onInputChange(event.target.value);
+  };
+
   return (
     <div className="input-container">
       <label>{qst}</label>
-      <input type="text" placeholder="Type your answer here..." />
+      <input
+        type="text"
+        placeholder="Type your answer here..."
+        value={inputValue}
+        onChange={handleChange}
+      />
       <button>
         <span>Next</span>
         <img src="/public/fli.svg" alt="" />
@@ -28,13 +41,15 @@ function MadebyOMC() {
 
 interface SelectProps {
   qst: string;
+  onSelectChange: (value: string) => void;
 }
 
-function Select({ qst }: SelectProps) {
+function Select({ qst, onSelectChange }: SelectProps) {
   const [selectedOption, setSelectedOption] = useState('');
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
+    onSelectChange(event.target.value);
   };
 
   return (
@@ -57,6 +72,25 @@ function Select({ qst }: SelectProps) {
 }
 
 function App() {
+  const [answers, setAnswers] = useState<string[]>([]);
+
+  const handleInputChange = (index: number, value: string) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[index] = value;
+    setAnswers(updatedAnswers);
+  };
+
+  const handleSelectChange = (index: number, value: string) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[index] = value;
+    setAnswers(updatedAnswers);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log('Submitted Answers:', answers);
+  };
+
   return (
     <>
       <div className="text-div">
@@ -65,23 +99,23 @@ function App() {
         <p>Fuel Your Mind and Join the Journey!</p>
       </div>
       <div>
-        <form className="inputs-section">
-          <Input qst="1 -> Hi, What’s your full name ?:" />
-          <Input qst="2 -> What’s your Email ?" />
-          <Input qst="3 -> What's your Phone Number ?" />
-          <Input qst="4 -> What is your University" />
-          <Input qst="5 -> What is your Study field" />
-          <Select qst="6 -> Year of Study ?" />
-          <Input qst="7 -> What's your Phone Number ?" />
-          <Input qst="8 -> What's your Discord id?" />
-          <Input qst="9 -> What you know about Open Source ?" />
-          <Input qst="10 -> What's your skills ?" />
-          <Input qst="11 -> Your GitHub / LinkedIn or Portfolio?" />
-          <Input qst="12 -> How you know OMC ?" />
-          <Input qst="13 -> What do you know about OMC ?" />
-          <Input qst="14 -> Why You want to join OMC ?" />
-          <Input qst="15 -> Anything to Add ?" />
-          <button type="submit" id="Submit">
+        <form className="inputs-section" onSubmit={handleSubmit}>
+          <Input qst="1 -> Hi, What’s your full name ?:" onInputChange={(value) => handleInputChange(0, value)} />
+          <Input qst="2 -> What’s your Email ?" onInputChange={(value) => handleInputChange(1, value)} />
+          <Input qst="3 -> What's your Phone Number ?" onInputChange={(value) => handleInputChange(2, value)} />
+          <Input qst="4 -> What is your University" onInputChange={(value) => handleInputChange(3, value)} />
+          <Input qst="5 -> What is your Study field" onInputChange={(value) => handleInputChange(4, value)} />
+          <Select qst="6 -> Year of Study ?" onSelectChange={(value) => handleSelectChange(5, value)} />
+          <Input qst="7 -> What's your Phone Number ?" onInputChange={(value) => handleInputChange(6, value)} />
+          <Input qst="8 -> What's your Discord id?" onInputChange={(value) => handleInputChange(7, value)} />
+          <Input qst="9 -> What you know about Open Source ?" onInputChange={(value) => handleInputChange(8, value)} />
+          <Input qst="10 -> What's your skills ?" onInputChange={(value) => handleInputChange(9, value)} />
+          <Input qst="11 -> Your GitHub / LinkedIn or Portfolio?" onInputChange={(value) => handleInputChange(10, value)} />
+          <Input qst="12 -> How you know OMC ?" onInputChange={(value) => handleInputChange(11, value)} />
+          <Input qst="13 -> What do you know about OMC ?" onInputChange={(value) => handleInputChange(12, value)} />
+          <Input qst="14 -> Why You want to join OMC ?" onInputChange={(value) => handleInputChange(13, value)} />
+          <Input qst="15 -> Anything to Add ?" onInputChange={(value) => handleInputChange(14, value)} />
+          <button type="submit" className="sub" id="Submit">
             Submit
           </button>
         </form>

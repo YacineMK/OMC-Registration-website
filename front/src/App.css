@@ -110,7 +110,7 @@ body {
   font-size: 18px;
   font-family: 'Red Hat Mono', monospace;
 } 
-#submit:hover {
+.sub:hover {
   background-color: #7EE787;
 }
 .end {
