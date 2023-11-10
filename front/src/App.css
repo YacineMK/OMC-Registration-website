@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 105px;
+  margin-top: 110px;
   text-align: center;
 }
 .text-div img {
@@ -40,7 +40,7 @@ body {
   align-items: center;
   color: #F0F6FC;
   text-decoration: left;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-left: 15%;
   margin-right: 15%;
   width: auto;
@@ -59,7 +59,7 @@ body {
   color: #F0F6FC;
   border-radius: 4px;
   max-width: 100px;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
