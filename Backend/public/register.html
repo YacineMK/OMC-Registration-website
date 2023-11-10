@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/Baghdadi_website.css" />
+    <link rel="shortcut icon" href="res/Jogol.png" />
+    <script src="js/script.js" defer></script>
+    <title>Register</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <div class="bigContainer">
+      <div class="smallcontainer">
+        <header>
+          <img src="res/Jogol.png" alt="logo" />
+          <a target="_self" href="/">
+            <img src="res/telechargement-removebg-preview_1.png" />
+            <h3>Return</h3>
+          </a>
+        </header>
+        <form id="form" name="signupForm">
+          <div class="container">
+            <div class="left">
+              <!-- <form action=""> -->
+              <label for="FullName">Full name</label>
+              <input type="text" name="fullName" id="FullName" required />
+
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" required />
+
+              <label for="phone">Phone nmber</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                pattern="0(5|6|7)[0-9]{8}"
+                required
+              />
+            </div>
+
+            <div class="right">
+              <label for="discord">Your Discord ID</label>
+              <input type="text" name="discord" id="discord" />
+
+              <label>Are you OMC member?</label>
+              <div class="yn">
+                <div class="dH3">
+                  <input
+                    type="radio"
+                    name="YN"
+                    id="Yeah"
+                    value="yes"
+                    checked
+                  /><label for="Yeah">Yes</label>
+                </div>
+                <div class="dH3">
+                  <input type="radio" name="YN" id="nah" value="no" /><label
+                    for="nah"
+                    >No</label
+                  >
+                </div>
+              </div>
+
+              <label for="study">Study Field</label>
+              <input type="text" name="study" id="study" required />
+            </div>
+          </div>
+
+          <div class="container2">
+            <label for="desc">Motivation</label>
+            <textarea name="description" id="desc" required></textarea>
+          </div>
+          <button id="btn" type="submit">Submit</button>
+        </form>
+
+        <div id="msg"></div>
+      </div>
+      <aside>
+        <h1>AI EVENT</h1>
+        <img src="res/Robot.png" alt="Robot" />
+      </aside>
+    </div>
+  </body>
+</html>
