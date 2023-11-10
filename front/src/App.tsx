@@ -20,9 +20,8 @@ function Input({ qst }: InputProps) {
 
 function MadebyOMC() {
   return (
-    <div>
+    <div className="end">
       <h1>Made with ❤️ By OMC</h1>
-      <p>And Soyed</p>
     </div>
   );
 }
