@@ -19,11 +19,16 @@ function App() {
         <p>Fuel Your Mind and Join the Journey!</p>
       </div>
       <div className="inputs-section">
-        <Inputs />
-        <Inputs />
-        <Inputs />
-        <Inputs />
-        <Inputs />
+        <Inputs qst="1 -> Hi, What’s your full name ?:"/>
+        <Inputs qst="2 -> What’s your Email ?"/>
+        <Inputs qst="3 -> What's your Phone Number ?"/>
+        <Inputs qst="4 -> What's your Discord id?"/>
+        <Inputs qst="5 -> What's you know about Open Source ?"/>
+        <Inputs qst="6 -> What's your skills"/>
+        <Inputs qst="7 -> How you know OMC ?"/>
+        <Inputs qst="8 -> What do you know about OMC ?"/>
+        <Inputs qst="9 -> What do you know about OMC ?"/>
+
 
       </div>
     </>
