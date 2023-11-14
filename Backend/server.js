@@ -31,7 +31,7 @@ app.post(
     check("name", "fullname is required !").not().isEmpty(),
     check("name", "Please enter your real name !").isLength({
       min: 5,
-      max: 50,
+      max: 40,
     }),
     check("phone", "Invalid phone number!").isLength({ min: 10, max: 10 }),
     check("university", "university field is required !").not().isEmpty(),
